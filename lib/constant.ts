@@ -30,5 +30,19 @@ const colors: Record<string, Color> = {
   },
 };
 
+const TOOLBAR_ITEMS = {
+  PENCIL: "PENCIL",
+  ERASER: "ERASER",
+  UNDO: "UNDO",
+  REDO: "REDO",
+  DOWNLOAD: "DOWNLOAD",
+  RECTANGLE: "RECTANGLE",
+  DIAMOND: "DIAMOND",
+  CIRCLE: "CIRCLE",
+  LINE: "LINE",
+  TEXT: "TEXT",
+  IMAGE: "IMAGE",
+};
+
 // Export the colors object
-export default colors;
+export { colors, TOOLBAR_ITEMS };
