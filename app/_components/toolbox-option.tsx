@@ -60,7 +60,7 @@ export const ToolboxOptions = () => {
                 style={{ background: colors.black.value }}
                 className={cn(
                   "h-7 w-7 rounded-sm cursor-pointer mr-2 p-1 hover:border-2 hover:border-[#4440BF] hover:p-2",
-                  color == "Black"
+                  color == "#00000a"
                     ? "border-2 border-[#4440BF]"
                     : "border-2 border-transparent"
                 )}
@@ -69,7 +69,7 @@ export const ToolboxOptions = () => {
             <div
               className={cn(
                 "h-7 w-7 rounded-sm cursor-pointer mr-2 p-1 hover:border-2 hover:border-[#4440BF] hover:p-2",
-                color == "Red"
+                color == "#ED5564"
                   ? "border-2 border-[#4440BF]"
                   : "border-2 border-transparent"
               )}
@@ -79,7 +79,7 @@ export const ToolboxOptions = () => {
             <div
               className={cn(
                 "h-7 w-7 rounded-sm cursor-pointer mr-2 p-1 hover:border-2 hover:border-[#4440BF] hover:p-2",
-                color == "Green"
+                color == "#A0D568"
                   ? "border-2 border-[#4440BF]"
                   : "border-2 border-transparent"
               )}
@@ -89,7 +89,7 @@ export const ToolboxOptions = () => {
             <div
               className={cn(
                 "h-7 w-7 rounded-sm cursor-pointer mr-2 p-1 hover:border-2 hover:border-[#4440BF] hover:p-2",
-                color == "Blue"
+                color == "#4FC1E8"
                   ? "border-2 border-[#4440BF]"
                   : "border-2 border-transparent"
               )}
@@ -99,7 +99,7 @@ export const ToolboxOptions = () => {
             <div
               className={cn(
                 "h-7 w-7 rounded-sm cursor-pointer mr-2 p-1 hover:border-2 hover:border-[#4440BF] hover:p-2",
-                color == "Yellow"
+                color == "#FFCE54"
                   ? "border-2 border-[#4440BF]"
                   : "border-2 border-transparent"
               )}
