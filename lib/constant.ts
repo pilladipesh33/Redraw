@@ -6,19 +6,19 @@ interface Color {
 const colors: Record<string, Color> = {
   red: {
     name: "Red",
-    value: "#FF0000",
+    value: "#ED5564",
   },
   green: {
     name: "Green",
-    value: "#00FF00",
+    value: "#A0D568",
   },
   blue: {
     name: "Blue",
-    value: "#0000FF",
+    value: "#4FC1E8",
   },
   yellow: {
     name: "Yellow",
-    value: "#FFFF00",
+    value: "#FFCE54",
   },
   black: {
     name: "Black",

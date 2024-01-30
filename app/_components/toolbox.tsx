@@ -8,7 +8,6 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 import {
   ArrowRight,
-  ArrowUpLeft,
   Circle,
   Diamond,
   Eraser,
@@ -23,7 +22,7 @@ import {
 export const ToolBoxContent = () => {
   const dispatch = useAppDispatch();
   const activeToolbarItem = useAppSelector(
-    (state) => state.toolbar.activeToolbarItem,
+    (state) => state.toolbar.activeToolbarItem
   );
 
   function handleMenuClick(itemName: string) {
@@ -45,7 +44,7 @@ export const ToolBoxContent = () => {
         <Pen
           className={cn(
             "h-4 w-4",
-            activeToolbarItem === "PENCIL" ? "text-white" : "text-black",
+            activeToolbarItem === "PENCIL" ? "text-white" : "text-black"
           )}
         />
       </ToolbarContainer>
@@ -81,7 +80,7 @@ export const ToolBoxContent = () => {
         <Eraser
           className={cn(
             "h-4 w-4",
-            activeToolbarItem === "ERASER" ? "text-white" : "text-black",
+            activeToolbarItem === "ERASER" ? "text-white" : "text-black"
           )}
         />
       </ToolbarContainer>
