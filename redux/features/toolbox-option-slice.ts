@@ -4,11 +4,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   [TOOLBAR_ITEMS.PENCIL]: {
     color: colors.black.value,
-    size: 3,
+    size: 5,
   },
   [TOOLBAR_ITEMS.ERASER]: {
     color: colors.white.value,
-    size: 3,
+    size: 5,
   },
   [TOOLBAR_ITEMS.REDO]: {},
   [TOOLBAR_ITEMS.UNDO]: {},

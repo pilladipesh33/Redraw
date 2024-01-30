@@ -6,10 +6,10 @@ import { ToolBoxContent } from "./toolbox";
 
 export const Navbar = () => {
   return (
-    <div className="w-full flex justify-between items-center">
-      <MenuContainer />
+    <div className="w-full bg-black">
+      {/* <MenuContainer /> */}
       <ToolBoxContent />
-      <LoginPane />
+      {/* <LoginPane /> */}
     </div>
   );
 };

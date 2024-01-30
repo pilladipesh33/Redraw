@@ -43,7 +43,18 @@ export const ToolboxOptions = () => {
         <div>
           <h4> Stroke Color</h4>
           <div className="flex items-center">
-            {theme === "light" ? (
+            {theme === "dark" ? (
+              <div
+                onClick={() => updateColorPalette(colors.white.value)}
+                className={cn(
+                  "h-7 w-7 rounded-sm cursor-pointer mr-2 p-1 hover:border-2 hover:border-[#4440BF] hover:p-2",
+                  color == "White"
+                    ? "border-2 border-[#4440BF]"
+                    : "border-2 border-transparent"
+                )}
+                style={{ background: colors.white.value }}
+              />
+            ) : (
               <div
                 onClick={() => updateColorPalette(colors.black.name)}
                 style={{ background: colors.black.value }}
@@ -54,17 +65,6 @@ export const ToolboxOptions = () => {
                     : "border-2 border-transparent"
                 )}
               />
-            ) : (
-              <div
-                onClick={() => updateColorPalette(colors.white.name)}
-                className={cn(
-                  "h-7 w-7 rounded-sm cursor-pointer mr-2 p-1 hover:border-2 hover:border-[#4440BF] hover:p-2",
-                  color == "White"
-                    ? "border-2 border-[#4440BF]"
-                    : "border-2 border-transparent"
-                )}
-                style={{ background: colors.white.value }}
-              />
             )}
             <div
               className={cn(
@@ -74,7 +74,7 @@ export const ToolboxOptions = () => {
                   : "border-2 border-transparent"
               )}
               style={{ background: colors.red.value }}
-              onClick={() => updateColorPalette(colors.red.name)}
+              onClick={() => updateColorPalette(colors.red.value)}
             />
             <div
               className={cn(
@@ -84,7 +84,7 @@ export const ToolboxOptions = () => {
                   : "border-2 border-transparent"
               )}
               style={{ background: colors.green.value }}
-              onClick={() => updateColorPalette(colors.green.name)}
+              onClick={() => updateColorPalette(colors.green.value)}
             />
             <div
               className={cn(
@@ -94,7 +94,7 @@ export const ToolboxOptions = () => {
                   : "border-2 border-transparent"
               )}
               style={{ background: colors.blue.value }}
-              onClick={() => updateColorPalette(colors.blue.name)}
+              onClick={() => updateColorPalette(colors.blue.value)}
             />
             <div
               className={cn(
@@ -104,7 +104,7 @@ export const ToolboxOptions = () => {
                   : "border-2 border-transparent"
               )}
               style={{ background: colors.yellow.value }}
-              onClick={() => updateColorPalette(colors.yellow.name)}
+              onClick={() => updateColorPalette(colors.yellow.value)}
             />
           </div>
         </div>
@@ -119,6 +119,7 @@ export const ToolboxOptions = () => {
               min={1}
               max={10}
               step={1}
+              value={size}
               onChange={updateBrushStroke}
               translate="yes"
             />
