@@ -1,19 +1,39 @@
 "use client";
 
-import { useAppSelector } from "@/redux/hooks";
-import React, { useEffect, useRef } from "react";
+import { TOOLBAR_ITEMS } from "@/lib/constant";
+import { actionItemClick } from "@/redux/features/toolbar";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 
 export const Board = () => {
   const canvasRef = useRef(null);
   const drawRef = useRef(false);
 
-  const activeToolbarItem = useAppSelector(
-    (state) => state.toolbar.activeToolbarItem
+  const dispatch = useAppDispatch();
+
+  const { activeToolbarItem, actionToolbarItem } = useAppSelector(
+    (state) => state.toolbar
   );
   const { color, size } = useAppSelector(
     (state) => state.toolbarOption[activeToolbarItem]
   );
 
+  useEffect(() => {
+    if (!canvasRef.current) return;
+    const canvas: any = canvasRef.current;
+    const context = canvas.getContext("2d");
+
+    if (actionToolbarItem === TOOLBAR_ITEMS.DOWNLOAD) {
+      const url = canvas.toDataURL();
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "sketch.png";
+      anchor.click();
+    }
+    dispatch(actionItemClick(null));
+  }, [actionToolbarItem, dispatch]);
+
+  //EFFECT
   useEffect(() => {
     if (!canvasRef.current) return;
     const canvas: any = canvasRef.current;
@@ -27,7 +47,7 @@ export const Board = () => {
   }, [color, size]);
 
   //MOUNT
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!canvasRef.current) return;
     const canvas: any = canvasRef.current;
     const context = canvas.getContext("2d");
