@@ -8,6 +8,8 @@ import React, { useEffect, useLayoutEffect, useRef } from "react";
 export const Board = () => {
   const canvasRef = useRef(null);
   const drawRef = useRef(false);
+  const drawHistoryRef = useRef<ImageData[]>([]);
+  const historyPointerRef = useRef(0);
 
   const dispatch = useAppDispatch();
 
@@ -29,6 +31,22 @@ export const Board = () => {
       anchor.href = url;
       anchor.download = "sketch.png";
       anchor.click();
+    } else if (
+      actionToolbarItem === TOOLBAR_ITEMS.UNDO ||
+      actionToolbarItem === TOOLBAR_ITEMS.REDO
+    ) {
+      if (
+        historyPointerRef.current > 0 &&
+        actionToolbarItem === TOOLBAR_ITEMS.UNDO
+      )
+        historyPointerRef.current -= 1;
+      if (
+        historyPointerRef.current < drawHistoryRef.current.length - 1 &&
+        actionToolbarItem === TOOLBAR_ITEMS.REDO
+      )
+        historyPointerRef.current += 1;
+      const imageData = drawHistoryRef.current[historyPointerRef.current];
+      context.putImageData(imageData, 0, 0);
     }
     dispatch(actionItemClick(null));
   }, [actionToolbarItem, dispatch]);
@@ -63,6 +81,11 @@ export const Board = () => {
     function finishedPosition(e: React.MouseEvent) {
       drawRef.current = false;
       context.beginPath();
+
+      //UNDO && REDO
+      const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+      drawHistoryRef.current.push(imageData);
+      historyPointerRef.current = drawHistoryRef.current.length - 1;
     }
     function draw(e: React.MouseEvent) {
       if (!drawRef.current) return;
